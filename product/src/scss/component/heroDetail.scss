@@ -1,0 +1,32 @@
+@use '../abstract' as a;
+.common > *{
+    display: inline-block;
+}
+.info-container {
+    margin-left:20px;
+    margin-top: 50px;
+}
+button{
+    @include a.button;
+    box-shadow: 1px 1px 10px a.$dark-gray;
+}
+.common{
+    height: 2rem;
+}
+.country{
+    #{&}__name{
+         font-size: x-large;
+    }
+    #{&}__other-info{
+        margin-top: 50px;
+    }
+}
+.border{
+    b{
+        font-size: large;
+    }
+    margin-top: 50px;
+}
+.border-countries > *{
+    margin: 20px 5px;
+}
