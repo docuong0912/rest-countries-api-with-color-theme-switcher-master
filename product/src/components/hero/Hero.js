@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
 const Hero = ({flags})=>{
+   
+    const navigate = useNavigate();
+    const view = (name)=>{
+        navigate(`detail/${name} `)
+    }
     return (
     <div className="flag-container">
         <div>
             {
                 flags.map(flag=>{
                     return(
-                        <div className="flag">
+                        <div key={flag.name.common} className="flag" onClick={()=>{view(flag.name.common)}}>
                             <div className="flag-appearance">
                                 <img src={flag.flags.png} alt="flag"/>
                             </div>
