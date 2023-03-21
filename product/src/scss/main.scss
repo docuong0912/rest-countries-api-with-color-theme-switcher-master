@@ -1,3 +1,11 @@
 @use './component/hero.scss';
 @use './component/home.scss';
 @use './component/heroDetail.scss';
+@use './component/searchbar.scss';
+@use './component/filter.scss';
+*{
+    font-family: 'Nunito Sans', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}

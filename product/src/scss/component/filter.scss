@@ -1,0 +1,40 @@
+.filter-container{
+    margin: 0px 20px;
+    overflow: hidden;
+    font-weight: 600;
+    z-index: 1;
+    .filter > *{
+        display: inline-block;
+        
+    }
+    .filter{
+        position: relative;
+        padding: 10px;
+        z-index: 2;
+        width: 60%;
+        background-color: white;
+        border-radius: 5px;
+        p{
+            margin-right: 50px;
+        }
+        
+    }
+    .filter__content{
+        @extend .filter;
+        z-index: 1;
+        width: 55%;
+        position: absolute;
+        ul{
+            padding: 5px;
+            width: 100%;
+        }
+        li{
+            display: block;
+            height: 30px;
+            width: 100%;
+            &:hover{
+                background-color: azure;
+            }
+        }
+    }
+}

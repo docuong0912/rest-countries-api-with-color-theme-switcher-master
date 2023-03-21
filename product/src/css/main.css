@@ -1,6 +1,6 @@
 .flag {
   width: 70%;
-  margin: 40px auto;
+  margin: 20px auto;
   border: 1px solid hsl(0, 0%, 52%);
   box-shadow: 2px 2px 10px hsl(0, 0%, 52%);
 }
@@ -16,6 +16,17 @@
   margin-top: 20px;
   font-size: small;
 }
+.detail b {
+  display: inline;
+  font-weight: 600;
+}
+.detail p {
+  display: inline;
+}
+
+.detail > * {
+  margin: 5px 0;
+}
 
 main {
   background-color: hsl(0, 0%, 98%);
@@ -26,18 +37,19 @@ main {
 }
 
 header {
-  padding: 10px;
-  border-bottom: 1px solid hsl(0, 0%, 98%);
-  box-shadow: 0px 15px 15px hsl(0, 0%, 98%);
+  padding: 30px 20px;
+  border-bottom: 2px solid hsl(0, 0%, 98%);
+  box-shadow: 1px 1px 5px hsl(0, 0%, 52%);
 }
 header h1 {
-  font-size: larger;
+  font-size: large;
 }
 header .theme {
   float: right;
 }
 header .theme p {
   margin-left: 10px;
+  font-weight: 600;
 }
 
 header > * {
@@ -81,4 +93,66 @@ button {
 
 .border-countries > * {
   margin: 20px 5px;
+}
+
+.search-container {
+  width: 90%;
+  height: 80px;
+  margin: auto;
+}
+.search-container .search-bar {
+  background-color: white;
+  margin: auto;
+  padding: 15px;
+}
+.search-container input {
+  outline: none;
+  border: none;
+  height: 50%;
+  margin-left: 10px;
+}
+
+.filter-container {
+  margin: 0px 20px;
+  overflow: hidden;
+  font-weight: 600;
+  z-index: 1;
+}
+.filter-container .filter > *, .filter-container .filter__content > * {
+  display: inline-block;
+}
+.filter-container .filter, .filter-container .filter__content {
+  position: relative;
+  padding: 10px;
+  z-index: 2;
+  width: 60%;
+  background-color: white;
+  border-radius: 5px;
+}
+.filter-container .filter p, .filter-container .filter__content p {
+  margin-right: 50px;
+}
+.filter-container .filter__content {
+  z-index: 1;
+  width: 55%;
+  position: absolute;
+}
+.filter-container .filter__content ul {
+  padding: 5px;
+  width: 100%;
+}
+.filter-container .filter__content li {
+  display: block;
+  height: 30px;
+  width: 100%;
+}
+.filter-container .filter__content li:hover {
+  background-color: azure;
+}
+
+* {
+  font-family: "Nunito Sans", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }/*# sourceMappingURL=main.css.map */

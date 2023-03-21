@@ -1,0 +1,16 @@
+.search-container {
+  width: 90%;
+  height: 80px;
+  margin: auto;
+}
+.search-container .search-bar {
+  background-color: white;
+  margin: auto;
+  padding: 15px;
+}
+.search-container input {
+  outline: none;
+  border: none;
+  height: 50%;
+  margin-left: 10px;
+}/*# sourceMappingURL=searchbar.css.map */

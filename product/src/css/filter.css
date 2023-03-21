@@ -1,0 +1,37 @@
+.filter-container {
+  margin: 0px 20px;
+  overflow: hidden;
+  font-weight: 600;
+  z-index: 1;
+}
+.filter-container .filter > *, .filter-container .filter__content > * {
+  display: inline-block;
+}
+.filter-container .filter, .filter-container .filter__content {
+  position: relative;
+  padding: 10px;
+  z-index: 2;
+  width: 60%;
+  background-color: white;
+  border-radius: 5px;
+}
+.filter-container .filter p, .filter-container .filter__content p {
+  margin-right: 50px;
+}
+.filter-container .filter__content {
+  z-index: 1;
+  width: 55%;
+  position: absolute;
+}
+.filter-container .filter__content ul {
+  padding: 5px;
+  width: 100%;
+}
+.filter-container .filter__content li {
+  display: block;
+  height: 30px;
+  width: 100%;
+}
+.filter-container .filter__content li:hover {
+  background-color: azure;
+}/*# sourceMappingURL=filter.css.map */

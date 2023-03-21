@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import {useNavigate} from 'react-router-dom';
-const Hero = ({flags})=>{
+const Hero = ({filter})=>{
    
     const navigate = useNavigate();
     const view = (name)=>{
@@ -10,7 +10,7 @@ const Hero = ({flags})=>{
     <div className="flag-container">
         <div>
             {
-                flags.map(flag=>{
+                filter?.map(flag=>{
                     return(
                         <div key={flag.name.common} className="flag" onClick={()=>{view(flag.name.common)}}>
                             <div className="flag-appearance">
