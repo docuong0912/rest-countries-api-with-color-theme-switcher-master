@@ -1,13 +1,9 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,Link} from 'react-router-dom';
 
 
 const Filter = () => {
-    const navigate = useNavigate();
-    const filter = (name)=>{
-        navigate(`/filter/${name}`);
-    }
 
   return (
     <div className='filter-container'>
@@ -19,12 +15,13 @@ const Filter = () => {
         </div>
         <div  className='filter__content'>
                 <ul>
-                    <li>None</li>
-                    <li onClick={(e) => filter(e.target.textContent)}>Africa</li>
-                    <li onClick={(e) => filter(e.target.textContent)}>America</li>
-                    <li  onClick={(e) => filter(e.target.textContent)}>Asia</li>
-                    <li onClick={(e) => filter(e.target.textContent)}>Europe</li>
-                    <li  onClick={(e) => filter(e.target.textContent)}>Oceania</li>
+                    
+                    <li><Link to='/'>None</Link></li>
+                    <li><Link to='filter/Africa'>Africa</Link></li>
+                    <li><Link to='filter/America'>America</Link></li>
+                    <li><Link to='filter/Asia'>Asia</Link></li>
+                    <li><Link to='filter/Europe'>Europe</Link></li>
+                    <li><Link to='filter/Oceania'>Oceania</Link></li>
                 </ul>
             </div>
     </div>

@@ -8,7 +8,7 @@
 }
 button{
     @include a.button;
-    box-shadow: 1px 1px 10px a.$dark-gray;
+    
 }
 .common{
     height: 2rem;

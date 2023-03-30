@@ -1,14 +1,18 @@
 import api from './api/axiosConfig'
 import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { useState,useEffect } from 'react';
 import Layout from './components/Layout';
 import HeroDetail from './components/hero/HeroDetail';
-import {Routes,Route} from 'react-router-dom';
+import Hero from './components/hero/Hero';
+import {Routes,Route,useParams} from 'react-router-dom';
 import Home from './components/home/Home';
 import FilterList from './components/FilterList/FilterList';
+import PageNumber from './components/page number/PageNumber';
+import Header from './components/Header/Header';
 import "./fontawsome";
 function App() {
+  const {page = 1} = useParams();
   const [flag,setFlag] = useState([]);
   const [singleFlag,setSingleFlag] = useState([]);
   const [border,setBorder] = useState([]);
@@ -17,7 +21,7 @@ function App() {
       const res = await api.get("/v3.1/all");
       
       setFlag(res.data);
-      console.log(res.data);
+
      
     }catch(err){
       console.log(err);
@@ -46,7 +50,7 @@ function App() {
   const filterByRegion =async(type)=>{
     try{
       const res = await api.get(`/v3.1/region/${type}`);
-      setSingleFlag(res.data);
+      setFlag(res.data);
       
     }catch(err){
         console.log(err);
@@ -57,22 +61,21 @@ function App() {
   },[])
   return (
     <div className="App">
-        <header>
-                <h1>Where in the world ?</h1>
-                <div className="theme">
-                    <FontAwesomeIcon icon=" fa-moon" />
-                    <p className="theme__type">
-                        Dark mode
-                    </p>
-                </div>
-        </header>
+      <Header/>
       <Routes>
         <Route path="/" element={<Layout/>}>
-          <Route path="/" element={<Home flags={flag}/>}></Route>
+          <Route path={`page=${page}`} element={<Home flags={flag}/>}>
+              <Route index element={<Hero page={page}/>}/>
+              <Route path = 'filter/:type' element = {<FilterList filterByRegion={filterByRegion}/>}/>
+          </Route>
           <Route path='/detail/:name' element={<HeroDetail border={border} getCountryDetail={getCountryDetail} singleFlag={singleFlag} />}></Route>
-          <Route path = '/filter/:type' element = {<FilterList filterByRegion={filterByRegion}/>}/>
         </Route>
       </Routes>
+      <aside>
+        <Routes>
+          <Route path={`page=${page}`} element={<PageNumber page={page}/>}></Route>
+        </Routes>
+      </aside>
     </div>
   );
 }

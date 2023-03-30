@@ -1,12 +1,14 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
+import { useEffect } from 'react';
 
-const FilterList = () => {
+const FilterList = ({filterByRegion}) => {
     let params = useParams();
-    const type = params.name;
-  return (
-    <div>FilterList</div>
-  )
+    
+    useEffect(()=>{
+      
+      filterByRegion(params.type);
+    },[]);
 }
 
 export default FilterList;

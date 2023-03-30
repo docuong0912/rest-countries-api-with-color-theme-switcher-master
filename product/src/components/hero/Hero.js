@@ -1,16 +1,18 @@
 import React, { useEffect,useState } from "react";
-import {useNavigate} from 'react-router-dom';
-const Hero = ({filter})=>{
-   
+import {useNavigate,Link} from 'react-router-dom';
+const Hero = ({filter,page})=>{
+    useEffect(()=>{
+
+    },[filter]);
     const navigate = useNavigate();
     const view = (name)=>{
-        navigate(`detail/${name} `)
+        navigate(`/detail/${name} `)
     }
     return (
     <div className="flag-container">
         <div>
             {
-                filter?.map(flag=>{
+                filter?.slice(0,10).map(flag=>{
                     return(
                         <div key={flag.name.common} className="flag" onClick={()=>{view(flag.name.common)}}>
                             <div className="flag-appearance">
@@ -33,6 +35,7 @@ const Hero = ({filter})=>{
                                 </div>
                                
                             </div>
+                           
                             
                         </div>
                     );

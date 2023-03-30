@@ -3,6 +3,7 @@ import Hero from "../hero/Hero";
 import Searchbar from "../search/Searchbar";
 import Filter from "../search/Filter";
 import { useState,useEffect } from "react";
+import {Link,Outlet} from "react-router-dom";
 
 const Home = ({flags})=>{
     
@@ -12,14 +13,18 @@ const Home = ({flags})=>{
         setFiltered(flags.filter(flag=>{
             return flag.name.common.match(new RegExp(filter, "i")) ;
         }));
-    },[filter])
+    },[filter]);
+    useEffect(()=>{
+        setFiltered(flags);
+    },[flags])
     return(
         <div>
             <Searchbar setFilter={setFilter}/>
             <Filter/>
-            <Hero filter={filtered.length==0?flags:filtered} />
-            
+            <Hero filter={filtered} />
+            <Outlet/>
         </div>
+        
         
     );
 }
