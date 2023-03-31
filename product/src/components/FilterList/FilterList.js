@@ -8,7 +8,7 @@ const FilterList = ({filterByRegion}) => {
     useEffect(()=>{
       
       filterByRegion(params.type);
-    },[]);
+    },[params]);
 }
 
 export default FilterList;

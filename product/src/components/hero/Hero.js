@@ -1,9 +1,10 @@
 import React, { useEffect,useState } from "react";
-import {useNavigate,Link} from 'react-router-dom';
-const Hero = ({filter,page})=>{
+import {useNavigate,Link,useParams} from 'react-router-dom';
+const Hero = ({filter})=>{
+    const params = useParams();
     useEffect(()=>{
-
-    },[filter]);
+        console.log(filter)
+    },[params,filter])
     const navigate = useNavigate();
     const view = (name)=>{
         navigate(`/detail/${name} `)
@@ -12,7 +13,7 @@ const Hero = ({filter,page})=>{
     <div className="flag-container">
         <div>
             {
-                filter?.slice(0,10).map(flag=>{
+                filter?.slice(params.page*10-10,params.page*10).map(flag=>{
                     return(
                         <div key={flag.name.common} className="flag" onClick={()=>{view(flag.name.common)}}>
                             <div className="flag-appearance">

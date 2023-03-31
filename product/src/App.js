@@ -5,14 +5,13 @@ import { useState,useEffect } from 'react';
 import Layout from './components/Layout';
 import HeroDetail from './components/hero/HeroDetail';
 import Hero from './components/hero/Hero';
-import {Routes,Route,useParams} from 'react-router-dom';
+import {Routes,Route,Navigate} from 'react-router-dom';
 import Home from './components/home/Home';
 import FilterList from './components/FilterList/FilterList';
 import PageNumber from './components/page number/PageNumber';
 import Header from './components/Header/Header';
 import "./fontawsome";
 function App() {
-  const {page = 1} = useParams();
   const [flag,setFlag] = useState([]);
   const [singleFlag,setSingleFlag] = useState([]);
   const [border,setBorder] = useState([]);
@@ -64,16 +63,17 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Layout/>}>
-          <Route path={`page=${page}`} element={<Home flags={flag}/>}>
-              <Route index element={<Hero page={page}/>}/>
+          <Route path={`page/:page`} element={<Home flags={flag}/>}>
+              <Route index element={<Hero />}/>
               <Route path = 'filter/:type' element = {<FilterList filterByRegion={filterByRegion}/>}/>
           </Route>
+          <Route path="/" element={<Navigate to={`page/1`}  replace={true} />} />
           <Route path='/detail/:name' element={<HeroDetail border={border} getCountryDetail={getCountryDetail} singleFlag={singleFlag} />}></Route>
         </Route>
       </Routes>
       <aside>
         <Routes>
-          <Route path={`page=${page}`} element={<PageNumber page={page}/>}></Route>
+          <Route path={`page/:page`} element={<PageNumber />}></Route>
         </Routes>
       </aside>
     </div>

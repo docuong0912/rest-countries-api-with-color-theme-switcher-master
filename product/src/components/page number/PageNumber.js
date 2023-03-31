@@ -1,17 +1,21 @@
-import React from 'react'
-
-const PageNumber = ({page}) => {
+import React from 'react';
+import {useNavigate} from 'react-router-dom';
+const PageNumber = () => {
+  const navigate = useNavigate();
+  const pages = Array.from({length:25},(_,i)=>i+1);
   return (
     <div className='page-list'>
-        {Array(25).map(page=>{
-            
-            return(
-                <button>zxc</button>
-            );
-        })}
+      {
+       pages.map(page=>{
+          return(
+            <button key={page} onClick={()=>navigate(`/page/${page}`)}>{page}</button>
+          );
+       })
+      }
+        
         
     </div>
   )
 }
 
-export default PageNumber
+export default PageNumber;

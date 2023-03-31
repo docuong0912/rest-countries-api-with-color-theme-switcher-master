@@ -21,7 +21,7 @@ const Home = ({flags})=>{
         <div>
             <Searchbar setFilter={setFilter}/>
             <Filter/>
-            <Hero filter={filtered} />
+            <Hero filter={filtered}  />
             <Outlet/>
         </div>
         
