@@ -8,10 +8,10 @@ import Hero from './components/hero/Hero';
 import {Routes,Route,Navigate} from 'react-router-dom';
 import Home from './components/home/Home';
 import FilterList from './components/FilterList/FilterList';
-import PageNumber from './components/page number/PageNumber';
 import Header from './components/Header/Header';
 import "./fontawsome";
 function App() {
+  const [darkMode,isDarkMode] = useState(false);
   const [flag,setFlag] = useState([]);
   const [singleFlag,setSingleFlag] = useState([]);
   const [border,setBorder] = useState([]);
@@ -60,22 +60,18 @@ function App() {
   },[])
   return (
     <div className="App">
-      <Header/>
+      <Header darkMode={darkMode} isDarkMode={isDarkMode}/>
       <Routes>
         <Route path="/" element={<Layout/>}>
-          <Route path={`page/:page`} element={<Home flags={flag}/>}>
-              <Route index element={<Hero />}/>
+          <Route path={`/countries`} element={<Home setFlag={setFlag} getFlags={getFlags} flags={flag}/>}>
+              <Route path='all' element={<Hero />}/>
               <Route path = 'filter/:type' element = {<FilterList filterByRegion={filterByRegion}/>}/>
           </Route>
-          <Route path="/" element={<Navigate to={`page/1`}  replace={true} />} />
+          <Route path="/" element={<Navigate to={`/countries/all`}  replace={true} />} />
           <Route path='/detail/:name' element={<HeroDetail border={border} getCountryDetail={getCountryDetail} singleFlag={singleFlag} />}></Route>
         </Route>
       </Routes>
-      <aside>
-        <Routes>
-          <Route path={`page/:page`} element={<PageNumber />}></Route>
-        </Routes>
-      </aside>
+     
     </div>
   );
 }

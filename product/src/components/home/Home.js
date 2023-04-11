@@ -6,22 +6,19 @@ import { useState,useEffect } from "react";
 import {Link,Outlet} from "react-router-dom";
 
 const Home = ({flags})=>{
-    
-    const [filter,setFilter] = useState();
+    const [filter,setFilter] = useState("");
     const [filtered,setFiltered] = useState([]);
     useEffect(()=>{
         setFiltered(flags.filter(flag=>{
             return flag.name.common.match(new RegExp(filter, "i")) ;
         }));
+        
     },[filter]);
-    useEffect(()=>{
-        setFiltered(flags);
-    },[flags])
     return(
         <div>
             <Searchbar setFilter={setFilter}/>
             <Filter/>
-            <Hero filter={filtered}  />
+            <Hero filter={filter.length == 0? flags: filtered}  />
             <Outlet/>
         </div>
         

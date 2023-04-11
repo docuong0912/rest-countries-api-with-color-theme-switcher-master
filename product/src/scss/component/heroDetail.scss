@@ -5,6 +5,15 @@
 .info-container {
     margin-left:20px;
     margin-top: 50px;
+    img{
+        @include a.md-lap{
+            display: inline-block;
+            width: 40%;
+            height: 40%;
+            vertical-align: top;
+        }
+    }
+    
 }
 button{
     @include a.button;
@@ -19,6 +28,25 @@ button{
     }
     #{&}__other-info{
         margin-top: 50px;
+        @include a.md-lap{
+            display: inline-block;
+            font-size: small;
+            margin: 20px 20px;
+        }
+    }
+    #{&}__maininfo{
+        @include a.md-lap{
+            margin-top: 20px;
+            display: inline-block;
+            font-size: small;
+            vertical-align: top;
+        }
+    }
+    @include a.md-lap{
+        width: 50%;
+        height: 50%;
+        display: inline-block   ;
+        margin-left: 50px;
     }
 }
 .border{
@@ -26,7 +54,20 @@ button{
         font-size: large;
     }
     margin-top: 50px;
+    button{
+        background-color: a.$very-light-gray;
+    }
+    @include a.md-lap{
+        *{
+            display: inline-block;
+        }
+    }
 }
 .border-countries > *{
     margin: 20px 5px;
+}
+.dark-detail{
+    *{
+        color:white;
+    }
 }

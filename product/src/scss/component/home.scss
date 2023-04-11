@@ -6,6 +6,7 @@ header {
     padding:30px 20px;
     border-bottom:2px solid a.$very-light-gray;
     box-shadow: 1px 1px 5px a.$dark-gray;
+    
     h1{
         font-size: large;
     }
@@ -19,4 +20,13 @@ header {
 }
 header >* {
     display: inline-block;
+}
+.dark-header{
+    background-color: a.$very-darkmode-blue;
+    *{
+        color:white;
+    }
+}
+.dark-bg{
+    background-color: a.$very-lightmode-blue;
 }

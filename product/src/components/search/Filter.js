@@ -8,15 +8,14 @@ const Filter = () => {
   return (
     <div className='filter-container'>
         <div className='filter'>
-            
             <p>Filter by Region</p>
-            <FontAwesomeIcon icon="fa-chevron-down" />
-            
         </div>
+        <span className='down-icon'>
+              <FontAwesomeIcon icon="fa-chevron-down" />
+        </span>
         <div  className='filter__content'>
                 <ul>
-                    
-                    <li><Link to={`/page/${params.page}`}>None</Link></li>
+                  
                     <li><Link to='filter/Africa'>Africa</Link></li>
                     <li><Link to='filter/America'>America</Link></li>
                     <li><Link to='filter/Asia'>Asia</Link></li>

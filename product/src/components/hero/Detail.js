@@ -14,9 +14,9 @@ const Detail = ({flag,border}) => {
             flag.map(f=>{
               return(
                 <div className='info-container' key={f.name.common}>
-                  <div>
+                  
                     <img src={f.flags.png} alt="flag"/>  
-                  </div>
+                  
                   <div className='country'>
                     <div className='country__name'>
                         <b>{f.name.common}</b>

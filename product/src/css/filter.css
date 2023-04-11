@@ -1,27 +1,66 @@
 .filter-container {
   margin: 0px 20px;
   overflow: hidden;
+  width: 50%;
+  height: 200px;
   font-weight: 600;
+  position: absolute;
   z-index: 1;
+  border-radius: 5px;
 }
 .filter-container .filter > *, .filter-container .filter__content > * {
   display: inline-block;
 }
 .filter-container .filter, .filter-container .filter__content {
-  position: relative;
+  position: absolute;
   padding: 10px;
   z-index: 2;
-  width: 60%;
-  background-color: white;
+  width: 300px;
+  background-color: hsl(0, 0%, 98%);
   border-radius: 5px;
 }
 .filter-container .filter p, .filter-container .filter__content p {
   margin-right: 50px;
 }
-.filter-container .filter__content {
-  z-index: 1;
-  width: 55%;
+@media screen and (min-width: 1024px) {
+  .filter-container .filter, .filter-container .filter__content {
+    width: 40%;
+  }
+}
+.filter-container .down-icon {
   position: absolute;
+  z-index: 4;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  transition: 0.5s;
+}
+.filter-container .down-icon:hover {
+  transform: rotate(180deg);
+}
+.filter-container .down-icon:hover + .filter__content {
+  top: 30px;
+}
+@media screen and (min-width: 1024px) {
+  .filter-container .down-icon {
+    left: 35%;
+  }
+}
+.filter-container .filter__content {
+  width: 100% !important;
+  z-index: -1;
+  position: absolute;
+  top: -150px;
+  transition: 0.5s;
+  left: 1px;
+}
+.filter-container .filter__content:hover {
+  top: 30px;
+}
+@media screen and (min-width: 1024px) {
+  .filter-container .filter__content {
+    width: 40% !important;
+  }
 }
 .filter-container .filter__content ul {
   padding: 5px;
@@ -34,4 +73,22 @@
 }
 .filter-container .filter__content li:hover {
   background-color: azure;
+}
+.filter-container .filter__content li * {
+  text-decoration: none;
+  color: black;
+}
+@media screen and (min-width: 1024px) {
+  .filter-container {
+    width: 50%;
+    display: inline-block;
+    margin-left: 200px;
+  }
+}
+
+.dark-filter {
+  background-color: hsl(207, 26%, 17%);
+}
+.dark-filter * {
+  color: white;
 }/*# sourceMappingURL=filter.css.map */

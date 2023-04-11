@@ -2,18 +2,14 @@ import React, { useEffect,useState } from "react";
 import {useNavigate,Link,useParams} from 'react-router-dom';
 const Hero = ({filter})=>{
     const params = useParams();
-    useEffect(()=>{
-        console.log(filter)
-    },[params,filter])
     const navigate = useNavigate();
     const view = (name)=>{
         navigate(`/detail/${name} `)
     }
     return (
-    <div className="flag-container">
-        <div>
+        <div className="flag-container">
             {
-                filter?.slice(params.page*10-10,params.page*10).map(flag=>{
+                filter?.map(flag=>{
                     return(
                         <div key={flag.name.common} className="flag" onClick={()=>{view(flag.name.common)}}>
                             <div className="flag-appearance">
@@ -43,7 +39,6 @@ const Hero = ({filter})=>{
                 })
             }
         </div>
-    </div>
     );
 }
 export default Hero;

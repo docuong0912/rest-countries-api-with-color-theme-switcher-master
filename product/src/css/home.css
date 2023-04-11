@@ -20,4 +20,15 @@ header .theme p {
 
 header > * {
   display: inline-block;
+}
+
+.dark-header {
+  background-color: hsl(207, 26%, 17%);
+}
+.dark-header * {
+  color: white;
+}
+
+.dark-bg {
+  background-color: hsl(200, 15%, 8%);
 }/*# sourceMappingURL=home.css.map */
